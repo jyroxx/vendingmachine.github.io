@@ -1,0 +1,248 @@
+#mars {
+    background-color: black;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    content:url(../img/imgSVG/mars.svg);
+    width: 80px;
+    height: 80px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    border: none;
+}
+
+#snickers {
+    background-color: #441808;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    content:url(../img/snickers.png);
+    width: 80px;
+    height: 80px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    border: none;
+}
+
+#twix {
+    background-color: #a3875d;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    content:url(../img/twix.png);
+    width: 80px;
+    height: 80px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    border: none;
+}
+
+#zweifel {
+    background-color: black;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    content:url(../img/zweifel.png);
+    width: 80px;
+    height: 80px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    border: none;
+}
+
+#mnms {
+    background-color: #572311;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    content:url(../img/imgSVG/mnms.svg);
+    width: 80px;
+    height: 80px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    border: none;
+}
+
+#doritos {
+    background-color: #e54f11;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    content:url(../img/imgSVG/doritos.svg);
+    width: 80px;
+    height: 80px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    border: none;
+}
+
+#kitKat {
+    background-color: #eb2128;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    content:url(../img/kitKat.png);
+    width: 80px;
+    height: 80px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    border: none;
+}
+
+#bounty {
+    background-color: #0089cd;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    content:url(../img/bounty.png);
+    width: 80px;
+    height: 80px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    border: none;
+}
+
+#fanta {
+    background-color: #fd8101;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    content:url(../img/fanta.jpg);
+    width: 80px;
+    height: 80px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    border: none;
+}
+
+#cocaCola {
+    background-color: #dc0b1c;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    content:url(../img/cocaCola.png);
+    width: 80px;
+    height: 80px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    border: none;
+}
+
+#sprite {
+    background-color: #009438;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    content:url(../img/sprite.jpg);
+    width: 80px;
+    height: 80px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    border: none;
+}
+
+#walser {
+    background-color: #fdfdfd;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    content:url(../img/valser.png);
+    width: 80px;
+    height: 80px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    border: none;
+}
+
+#redBull {
+    background-color: #173083;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    content:url(../img/redBull.jpg);
+    width: 80px;
+    height: 80px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    border: none;
+}
+
+#iceTea {
+    background-color: #fdfdfd;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    content:url(../img/iceTea.jpg);
+    width: 80px;
+    height: 80px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    border: none;
+}
+
+#orangeJuice {
+    background-color: #fbfbfb;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    content:url(../img/imgSVG/orangeJuice.svg);
+    width: 80px;
+    height: 80px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    border: none;
+    /*padding: 5px;*/
+}
+
+#volvic {
+    background-color: #e7e6ec;
+    /*background-color: #2c944a;*/
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    content:url(../img/volvic.png);
+    width: 80px;
+    height: 80px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    border: none;
+}
+
+#main {
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    height: 65px;
+    width: 65px;
+    margin-bottom: 100px;
+    opacity: 100%;
+    animation-duration: 7s;
+    bottom: 100px;
+    z-index: 0;
+}
+
+@keyframes hop {
+    0%   {left:0px; top:-100px;}
+    45% {left:0px; top:-20px;}
+    66%   {left:0px; top:-20px;}
+    100% {left:0px; top:-100px;}
+}
+/*@keyframes hopla {*/
+
+/*}*/

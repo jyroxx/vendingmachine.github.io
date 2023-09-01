@@ -1,0 +1,223 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    align-items: center;
+}
+.overall {
+    padding: 50px;
+    display: flex;
+    justify-content: space-between;
+    flex-flow: row wrap;
+    align-items: center;
+}
+
+.vending-machine {
+    height: 900px;
+    width: 650px;
+    background-color: #ddd;
+    border: 10px solid #444;
+    border-radius: 10px;
+    padding: 20px;
+    gap: 10px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    align-content: baseline;
+}
+
+.button {
+    /*display: flex;*/
+    /*justify-content: space-evenly;*/
+    /*align-items: center;*/
+    width: 80px; /* Divide the width equally among three buttons with a gap of 10px */
+    height: 80px;
+    padding: 10px;
+    position: relative;
+    /*font-size: 16px;*/
+    /*border: none;*/
+    /*background-color: #000000;*/
+    /*color: white;*/
+    /*border-radius: 5px;*/
+    cursor: pointer;
+}
+
+.button:hover {
+    padding: 12px;
+    font-size: 20px;
+    background-color: #0056b3;
+}
+.padContainer {
+    display: flex;
+    flex-direction: column;
+    /*justify-content: right;*/
+    /*align-items: flex-start;*/
+}
+
+.padLetter {
+    height: 58px;
+    width: 64px;
+    background-color: #ddd;
+    border: 5px solid #444;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    /*padding: 20px;*/
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-content: flex-start;
+}
+
+.padNumber {
+    height: 58px;
+    width: 64px;
+    background-color: #ddd;
+    border: 5px solid #444;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    /*padding: 20px;*/
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-content: flex-start;
+}
+
+.buttonPad {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 5px; /* Divide the width equally among three buttons with a gap of 10px */
+    height: 5px;
+    padding: 10px;
+    margin: 2px;
+    font-size: 10px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.buttonPad:hover {
+    font-size: 12px;
+    background-color: #0056b3;
+}
+
+.retrieveHole {
+    position: relative;
+    height: 70px;
+    width: 350px;
+    background-color: #A8A8A8FF;
+    border: 10px solid #444;
+    border-radius: 10px;
+    padding: 20px;
+    gap: 10px;
+    display: flex;
+    justify-content: center;
+    margin: 120px;
+}
+
+.frontGlass {
+    height: 450px;
+    width: 450px;
+    background-color: #ddd;
+    border: 10px solid #444;
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+
+.inputDistributor {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-flow: column wrap;
+}
+
+.screen {
+    width: 130px;
+    height: 70px;
+    background-color: rgba(72, 8, 0, 0.59);
+}
+#displayScreen {
+    font-family: 'Courier New', monospace;
+    font-weight: bolder;
+    color: #000000;
+    margin: 4px;
+    display: flex;
+    justify-content: left;
+    align-self: flex-start;
+}
+.credit {
+    width: 130px;
+    height: 30px;
+    background-color: rgba(72, 8, 0, 0.59);
+    display: flex;
+    justify-content: right;
+}
+
+#displayCredit {
+    font-family: 'Courier New', monospace;
+    font-weight: bolder;
+    display: flex;
+    align-self: center;
+}
+
+.inputMoney {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #A8A8A8FF;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    font-weight: bold;
+    cursor: pointer;
+}
+.inputMoney::before {
+    content: ""; /* Required for pseudo-elements */
+    width: 100%;
+    height: 1px; /* Adjust the height as needed */
+    background-color: #000; /* Line color */
+    transform: translateY(-50%); /* Adjust vertical alignment */
+}
+/*.inputCoin {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #A8A8A8FF;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    font-weight: bold;
+    cursor: pointer;
+}
+.inputCoin::before {
+    content: "";
+    height: 100%;
+    width: 1px;
+    background-color: #000;
+    transform: translateY(-50%);
+}*/
+
+#cachette {
+    height: 100px;
+    width: 100px;
+    background-color: #ddd;
+    display:flex;
+    justify-content: center;
+    position: absolute;
+    bottom: 120px;
+    z-index: 1;
+}
+
+#cachette2 {
+    height: 10px;
+    width: 100px;
+    background-color: #444;
+    position: absolute;
+    bottom: 110px;
+    z-index: 1;
+}

@@ -1,0 +1,14 @@
+{
+  "name": "vendor_name/exercices",
+  "description": "description",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "jroh",
+      "email": "email@example.com"
+    }
+  ],
+  "require": {
+  }
+}

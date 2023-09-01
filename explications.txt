@@ -1,0 +1,44 @@
+Ce code est une page HTML qui crée une table avec plusieurs lignes et deux colonnes. Chaque ligne contient du texte (par exemple, "Row 1", "Row 2", "Row 3") dans la première colonne, et un bouton "Delete" dans la deuxième colonne. Lorsque vous cliquez sur le bouton "Delete" d'une ligne spécifique, cette ligne sera supprimée de la table.
+
+Voici comment cela fonctionne en détail :
+
+1. Le code HTML crée une table avec l'ID "myTable".
+2. Chaque ligne de la table est créée avec l'élément HTML `<tr>`.
+3. Dans chaque ligne, il y a deux cellules de données (`<td>`). La première cellule contient du texte ("Row 1", "Row 2", etc.), et la deuxième cellule contient un bouton "Delete".
+4. Chaque bouton "Delete" est configuré avec un attribut `onclick` qui appelle la fonction JavaScript `deleteRow(this)` lorsque le bouton est cliqué. Le mot-clé `this` fait référence au bouton sur lequel le clic a eu lieu.
+5. La fonction JavaScript `deleteRow(r)` est définie dans la balise `<script>`. Cette fonction est appelée lorsqu'un bouton "Delete" est cliqué.
+6. La fonction `deleteRow(r)` prend en paramètre `r`, qui est le bouton "Delete" sur lequel le clic a eu lieu.
+7. À l'intérieur de la fonction, `r.parentNode.parentNode` permet de remonter la hiérarchie du DOM pour atteindre la ligne (`<tr>`) parente de la cellule contenant le bouton. Cela permet d'obtenir l'indice de la ligne dans la table.
+8. Ensuite, la fonction `deleteRow(r)` utilise la méthode `deleteRow()` de l'élément `table` (dont l'ID est "myTable") pour supprimer la ligne spécifiée par l'indice `i`.
+
+En résumé, lorsque vous cliquez sur le bouton "Delete" d'une ligne spécifique, la fonction `deleteRow()` est appelée, qui identifie la ligne parente du bouton cliqué et la supprime de la table. Cela permet de simuler la suppression d'une ligne de la table lorsque le bouton "Delete" est cliqué.
+
+
+couleur
+importance
+trier
+modifier
+
+
+
+- `function bubbleSort(arr)` : Ceci déclare une fonction appelée `bubbleSort` qui prend un tableau `arr` en paramètre. Cette fonction va trier le tableau en utilisant l'algorithme Bubble Sort.
+
+- `const n = arr.length;` : Ici, nous déclarons une constante `n` qui contient la longueur (le nombre d'éléments) du tableau `arr`.
+
+- `for (let i = 0; i < n - 1; i++)` : C'est une boucle `for` qui commence à `0` et continue jusqu'à `n - 1`. À chaque itération, nous parcourons une passe du tableau pour le tri.
+
+- `for (let j = 0; j < n - i - 1; j++)` : C'est une autre boucle `for` imbriquée dans la première. Elle parcourt les éléments du tableau pour effectuer les comparaisons et les échanges.
+
+- `if (arr[j] > arr[j + 1])` : Ceci est une condition `if` qui vérifie si l'élément actuel `arr[j]` est plus grand que l'élément suivant `arr[j + 1]`.
+
+- `const temp = arr[j];` : Nous utilisons une constante temporaire `temp` pour stocker la valeur de `arr[j]`.
+
+- `arr[j] = arr[j + 1];` : Ici, nous remplaçons la valeur de `arr[j]` par la valeur de `arr[j + 1]`, ce qui effectue l'échange.
+
+- `arr[j + 1] = temp;` : Enfin, nous remplaçons la valeur de `arr[j + 1]` par la valeur stockée dans `temp`, complétant ainsi l'échange.
+
+- `const numbers = [4, 2, 8, 1, 5];` : Ici, nous créons un tableau de nombres non triés.
+
+- `bubbleSort(numbers);` : Nous appelons la fonction `bubbleSort` pour trier le tableau `numbers` en place.
+
+- `console.log("Nombres triés :", numbers);` : Nous affichons les nombres triés dans la console.

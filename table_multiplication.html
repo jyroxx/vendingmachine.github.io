@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Table de Multiplication</title>
+    <link rel="stylesheet" type="text/css" href="board.css">
+</head>
+<body>
+<nav>
+    <div>
+        <a class="navL" href="table_multiplication.html" title="Table de Multiplication">Multiplications</a>
+        <a href="table_nombres.html" title="Nombres Premiers">Premiers / Carr&eacutes</a>
+        <a class="navR" href="array.html" title="Array">Array</a>
+    </div>
+</nav>
+<div>
+    <h1>Table creator</h1>
+    <h3>multiples de</h3>
+    <div>
+        <table>
+        <tr>
+            <th><label for="mThree">trois</label><input onclick="printTable()" id="mThree" value="1" type="checkbox"></th>
+            <th><label for="mTwo">deux</label><input onclick="printTable()" id="mTwo" value="1" type="checkbox"></th>
+            <th><label for="mFive">cinq</label><input onclick="printTable()" id="mFive" value="1" type="checkbox"></th>
+        </tr>
+        </table>
+    </div>
+    <br>
+    <div>
+
+
+    <form action="">
+        <input min="1" type="number" id="axisx" placeholder='lignes horizontales'> x
+        <input min="1" type="number" id="axisy" placeholder='lignes verticales'>
+        <button type="button" id="printBtn" onclick="printTable()">Refresh table</button>
+    </form>
+    <br><table class="" id="table"></table>
+    </div>
+</div>
+
+    <script>
+        let x, y;
+        let i = 1, j = 2;
+        let xx, yy;
+        let input = document.getElementById("axisy");
+        input.addEventListener("keypress", function(event) {
+            if (event.key === "Enter") {
+                xx = parseInt(document.getElementById("axisx").value);
+                yy = parseInt(document.getElementById("axisy").value);
+                if (isNaN(xx)) {
+                    event.preventDefault();
+                    document.getElementById("axisx").select();
+                }
+                else if (isNaN(yy)) {
+                    event.preventDefault();
+                    document.getElementById("axisy").select();
+                }
+                else {
+                    event.preventDefault();
+                    document.getElementById("printBtn").click();
+                }
+            }
+        });
+
+        input = document.getElementById("axisx");
+        input.addEventListener("keypress", function(event) {
+            if (event.key === "Enter") {
+                xx = parseInt(document.getElementById("axisx").value);
+                yy = parseInt(document.getElementById("axisy").value);
+                if (isNaN(xx)) {
+                    event.preventDefault();
+                    document.getElementById("axisx").select();
+                }
+                else if (isNaN(yy)) {
+                    event.preventDefault();
+                    document.getElementById("axisy").select();
+                }
+                else {
+                    event.preventDefault();
+                    document.getElementById("printBtn").click();
+                }
+            }
+        });
+
+
+        function printTable()
+        {
+            x = parseInt(document.getElementById("axisx").value);
+            console.log(x)
+            y = parseInt(document.getElementById("axisy").value);
+            console.log(y)
+
+            let table = document.getElementById("table");
+            table.innerHTML = ""; // Clear any existing content
+
+            for ( i = 1; i  <= y; i++) {
+                let row = document.createElement("tr");
+
+                for ( j = 1; j  <= x; j++) {
+                    let r = 0, g = 0, b = 0;
+                    let cell = document.createElement("td");
+                    <!-- cell.textContent = `Row ${i + 1}, Column ${j + 1}`; -->
+                    cell.textContent = `${i * j}`;
+                    if ((i * j) % 3 === 0 && (document.getElementById('mThree').checked)) {
+                        r = 255;
+                        cell.style.color = "rgb(0, 0, 0)";
+                    //     cell.style.backgroundColor = "rgb(255, 100, 255, 0.6)"
+                    }
+                    if ((i * j) % 2 === 0 && (document.getElementById('mTwo').checked)) {
+                        b = 255;
+                        cell.style.color = "rgb(0, 0, 0)";
+                        // cell.style.backgroundColor = "rgb(0, 100, 255, 0.6)"
+                    }
+                    if ((i * j) % 5 === 0 && (document.getElementById('mFive').checked)) {
+                        g = 255;
+                        cell.style.color = "rgb(0, 0, 0)";
+                        // cell.style.backgroundColor = "rgb(255, 0, 0, 0.6)"
+
+                    }
+                    else {
+                        cell.style.color = "rgb(0, 0, 0)"
+                        // cell.style.backgroundColor = "rgb(100, 255, 0, 0.6)"
+                    }
+                    cell.style.backgroundColor = "rgb("+r+", "+g+", "+b+", 0.6)"
+
+                    row.appendChild(cell);
+                }
+
+                table.appendChild(row);
+            }
+
+        }
+    </script>
+</body>
+</html>

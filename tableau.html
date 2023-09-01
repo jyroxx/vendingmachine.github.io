@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tableau</title>
+    <link rel="stylesheet" type="text/css" href="board.css">
+</head>
+<body>
+<div>
+    <h1>Table creator</h1>
+    <div>
+        <form action="">
+            <table>
+                <thead><tr><input min="1" type="number" id="quantity" placeholder='quantité' value="10"></tr></thead>
+                <tbody><tr>
+            <td>Nombres <input min="1" type="number" id="min" placeholder='de' value="10"></td>
+            <td><input min="1" type="number" id="max" placeholder='à' value="20"></td>
+                </tbody></tr>
+            </table>
+        </form>
+    </div>
+</div>
+<br>
+<div id="display">
+</div>
+
+<script>
+    let beginning = document.getElementById("min")
+    let end = document.getElementById("max")
+    let quantity = document.getElementById("quantity")
+
+    let div = document.getElementById("display")
+    let tr = document.createElement("tr")
+    let button = document.createElement("button")
+    let br = document.createElement("br")
+
+    const random = []
+    //const sorted = []
+    let element = document.getElementById("display") // elements in div
+    let intermediateR
+    let intermediateS
+
+    console.log(end)
+
+    end.addEventListener("keypress", function(event) {
+        if (event.key === "Enter") {
+            beginning = parseInt(document.getElementById("min").value)
+            end = parseInt(document.getElementById("max").value)
+            quantity = parseInt(document.getElementById("quantity").value)
+            getRandomInt(beginning, end);
+            //const randomInt = getRandomInt(beginning, end);
+
+            /* construction du HTML */
+
+        }
+    });
+
+    function getRandomInt(min, max) {
+        while (element.firstChild) {
+            element.removeChild(element.firstChild);
+        }
+
+        random.length = 0
+        console.log(random)
+        if (min >= max) {
+            alert("Le chiffre de début doit être plus petite que celui de fin!")
+        }
+        else {
+            for (let i = quantity; isNaN(random[quantity - 1]); i--) { //jsp si i sert encore à qqch mais ça marche
+                console.log(Math.random() * max);
+                intermediateR = (Math.floor(Math.random() * max));
+                if (intermediateR > min) {
+                    random.push(intermediateR)
+                }
+            }
+        }
+
+        button.setAttribute("id", "randomSort") //id button <===
+        // button.setAttribute("onclick", "sortRandomInt()")
+
+
+        button.addEventListener('click', function() {
+            //let array = bubbleSort(random);
+            let sortedArray = customSort(random)
+            console.log(sortedArray)
+            console.log(random)
+
+            let div = document.getElementById("display")
+            let tr = document.createElement("tr")
+            let button = document.createElement("button")
+            let br = document.createElement("br")
+            button.setAttribute("id", "sortedSort") //id button <===
+            //button.setAttribute("onclick", "sortRandomInt")
+            button.textContent = `Réinitialiser`
+
+            for (let j = 0; j < quantity - 1; j++) {
+                let th = document.createElement("th")
+                th.textContent = `${sortedArray[j]}, `
+                tr.appendChild(th)
+            }
+            let th = document.createElement("th")
+            th.textContent = `${sortedArray[quantity - 1]}`
+            tr.appendChild(th)
+            div.appendChild(tr)
+            div.appendChild(br)
+            div.appendChild(button)
+
+        })
+        button.textContent = `Trier les nombres`
+
+        for (let j = 0; j < quantity - 1; j++) {
+            let th = document.createElement("th")
+            th.textContent = `${random[j]}, `
+            tr.appendChild(th)
+        }
+        let th = document.createElement("th")
+        th.textContent = `${random[quantity - 1]}`
+        tr.appendChild(th)
+        div.appendChild(tr)
+        div.appendChild(br)
+        div.appendChild(button)
+    }
+
+    function bubbleSort(arr) {
+        //bubblesort
+        arr = [...arr];
+
+        const longueur = arr.length; //savoir combien il y a d'éléments dans arr
+
+        for (let i = 0; i < longueur; i++) { //à chaque itération on parcours une passe du tableau pour le tri
+            for (let j = 0; j < longueur - i - 1; j++) { // parcourir les éléments pour les échanger
+                if (arr[j] > arr[j + 1]) {
+                    // swap arr[j] et arr[j+1]
+                    const temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                }
+
+            }
+        }
+        return arr;
+    }
+
+    function sortRandomInt(array) {
+        const sorted = [...array].sort((a, b) => a - b);
+        console.log(sorted)
+        console.log("hello")
+
+
+        return sorted;
+       //créer un bouton pour clear
+    }
+
+    function customSort(array) {
+        const sorted = [...array].sort(function(a, b) {
+
+            if (a % 2 !== 0 && b % 2 === 0) {
+                return -1; // a vient avant b
+            } else if (a % 2 === 0 && b % 2 !== 0) {
+                return 1; // b vient avant a
+            } else {
+                return a - b; // Tri croissant normal
+            }
+        });
+
+        return sorted;
+
+    }
+</script>
+</body>
+</html>

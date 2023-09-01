@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Array</title>
+    <link rel="stylesheet" type="text/css" href="board.css">
+</head>
+<body>
+<nav>
+    <div>
+        <a class="navL" href="table_multiplication.html" title="Table de Multiplication">Multiplications</a>
+        <a href="table_nombres.html" title="Nombres Premiers">Premiers / Carr&eacutes</a>
+        <a class="navR" href="array.html" title="Array">Array</a>
+    </div>
+</nav>
+<div>
+    <div>
+        <h1>Table creator</h1>
+        <h3>Cookies status: <span id="statusText">Inactive (Not Saved)</span></h3>
+        <table>
+        <tr>
+            <th><label for="activeRadio">Activate</label></th>
+            <th><input type="radio" onclick="save()" name="status" id="activeRadio" value="active" ></th>
+            <th><input type="radio" onclick="save()" name="status" id="inactiveRadio" value="inactive" checked></th>
+            <th><label for="inactiveRadio">Deactivate</label></th>
+<!--            <th><button onclick="save()" id="restoreStateButton">Restore State</button></th>-->
+        </tr>
+        </table>
+        <br>
+        <button type="button" id="clearStorageButton">Clear cookies</button>
+        <h3>To Do List</h3>
+        <form action="">
+            <input min="1" type="text" id="task" placeholder='Tâche'>
+            <input min="1" type="date" id="date">
+            <select name="importance" id="importance">
+                <option value="faible">Faible</option>
+                <option value="moyenne">Moyenne</option>
+                <option value="élevée">&Eacutelev&eacutee</option>
+            </select>
+
+            <button type="button" id="printBtn" onclick="createTable(); save();">Create table</button>
+        </form>
+        <table class="" id="table"></table>
+    </div>
+</div>
+<br>
+<script>
+
+    const statusText = document.getElementById("statusText");
+    const activeRadio = document.getElementById("activeRadio");
+    const inactiveRadio = document.getElementById("inactiveRadio");
+    const table = document.getElementById("table");
+    // const restoreStateButton = document.getElementById("restoreStateButton");
+    const clearStorageButton = document.getElementById("clearStorageButton");
+function save() {
+    // Radio button change event
+    if (document.getElementById("activeRadio").checked === true) {
+        const tableContent = table.innerHTML;
+        localStorage.setItem("tableContent", tableContent);
+        statusText.textContent = "Active (Saved)";
+    } else if (document.getElementById("inactiveRadio").checked === true) {
+        statusText.textContent = "Inactive (Not Saved)";
+    }
+}
+
+    // Restore table content from local storage
+    // restoreStateButton.addEventListener("click", () => {
+    //     const savedContent = localStorage.getItem("tableContent");
+    //     if (savedContent) {
+    //         table.innerHTML = savedContent;
+    //     }
+    // });
+
+    clearStorageButton.addEventListener("click", () => {
+        localStorage.removeItem("tableContent");
+        activeRadio.checked = false;
+        inactiveRadio.checked = false;
+        statusText.textContent = "Inactive (Not Saved)";
+        document.getElementById("inactiveRadio").checked = true
+    });
+
+    // Save table content to local storage
+    function saveTableContent() {
+        const tableContent = table.innerHTML;
+        localStorage.setItem("tableContent", tableContent);
+    }
+
+    // Initial load: Restore table content if available
+    const savedTableContent = localStorage.getItem("tableContent");
+    if (savedTableContent) {
+        table.innerHTML = savedTableContent;
+    }
+
+
+
+    // Get the current date
+    const today = new Date();
+
+    // Format the date to YYYY-MM-DD
+    const formattedDate = today.toISOString().slice(0, 10);
+
+    // Set the formatted date as the value of the input element
+    document.getElementById("date").value = formattedDate;
+
+    const tasks = [];
+    const verifyIds = [];
+
+    function deleteRow(r) {
+        let i = r.parentNode.parentNode.rowIndex;
+        document.getElementById("table").deleteRow(i);
+
+        //verifyIds.splice(index)
+
+    }
+
+    function makeItGreen(checkbox) {
+        let row = checkbox.parentNode.parentNode;
+        let cells = row.getElementsByTagName("td");
+
+        for (let i = 0; i < cells.length; i++) {
+            if (cells[i].classList.contains("green-cell")) {
+                cells[i].classList.remove("green-cell");
+            } else {
+                cells[i].classList.add("green-cell");
+            }
+        }
+    }
+
+    // function handleEditableChange(span) {
+    //     let editable = span.parentNode.parentNode;
+    //
+    // }
+
+    function createTable() {
+
+            const taskTxt = document.getElementById("task").value
+            // if (verifyIds.includes(taskTxt)) {
+            //     alert("La tâche a déjà été utilisée")
+            // }
+            // else {
+            verifyIds.push(taskTxt);
+            tasks[0] = document.getElementById("task").value;
+            tasks[1] = document.getElementById("date").value;
+            tasks[2] = document.getElementById("importance").value;
+            console.log(tasks)
+            console.log(tasks[2])
+            console.log(verifyIds)
+
+            if (tasks[0] === "") {
+                alert("Tu dois d'abord indiquer un tâche")
+            }
+            else {
+                let table = document.getElementById("table");
+                let row = document.createElement("tr");
+                let cell = document.createElement("td");
+                //let trashBin = document.createElement("button")
+                let image = document.createElement("img")
+                let imageL = document.createElement("img")
+                let imageM = document.createElement("img")
+                let imageH = document.createElement("img")
+                let entry = document.createElement("input")
+                let text0 = document.createElement("p")
+                let text1 = document.createElement("p")
+                let span = document.createElement("span")
+                text0.textContent = `Rappel: `
+                text1.textContent = ` doit être effectué d'ici le  ${tasks[1]}. Importance ${tasks[2]}`
+                span.textContent = `${tasks[0]}`
+
+
+
+                entry.setAttribute("type", "checkbox")
+                entry.setAttribute("onclick", "makeItGreen(this)")
+
+                image.setAttribute("src", "poubelle.png")
+                image.setAttribute("id", tasks[0])
+                image.setAttribute("border", "0")
+                image.setAttribute("height", "24")
+                image.setAttribute("width", "24")
+                image.setAttribute("onclick", "deleteRow(this)")
+                image.setAttribute("class", "trash")
+
+                imageL.setAttribute("class", "imageImp")
+                imageM.setAttribute("class", "imageImp")
+                imageH.setAttribute("class", "imageImp")
+
+                //span.setAttribute("onclick", "handleEditableChange")
+                span.setAttribute("contenteditable", "true")
+
+
+                imageL.setAttribute("src", "Faible.png")
+                imageM.setAttribute("src", "Modere.png")
+                imageH.setAttribute("src", "Eleve.png")
+
+                cell.appendChild(text0)
+                cell.appendChild(span)
+                cell.appendChild(text1)
+                cell.appendChild(entry)
+                cell.appendChild(image)
+                if (tasks[2] === "faible") {
+                    cell.appendChild(imageL)
+                } else if (tasks[2] === "moyenne") {
+                    cell.appendChild(imageM)
+                } else if (tasks[2] === "élevée") {
+                    cell.appendChild(imageH)
+                }
+                //cell.appendChild(trashBin)
+                row.appendChild(cell);
+                table.appendChild(row);
+                // }
+                // if (document.getElementById("activeRadio").checked === true) {
+                //     document.getElementById("activeRadio").checked = true
+                // }
+            }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../public/css/Distributor.css">
+    <link rel="stylesheet" type="text/css" href="../public/css/Wallet.css">
+    <link rel="stylesheet" type="text/css" href="../public/css/Image.css">
+    <link href="../public/fontawesome/css/all.css" rel="stylesheet">
+
+    <title>Distributor</title>
+</head>
+<body>
+<div class="overall">
+<div class="vending-machine">
+        <div class="frontGlass">
+            <div class="button" data-value="A1" id="mars">A1</div>
+            <div class="button" data-value="A2" id="twix">A2</div>
+            <div class="button" data-value="A3" id="sprite">A3</div>
+            <div class="button" data-value="A4" id="bounty">A4</div>
+            <div class="button" data-value="B1" id="doritos">B1</div>
+            <div class="button" data-value="B2" id="volvic">B2</div>
+            <div class="button" data-value="B3" id="fanta">B3</div>
+            <div class="button" data-value="B4" id="orangeJuice">B4</div>
+            <div class="button" data-value="C1" id="kitKat">C1</div>
+            <div class="button" data-value="C2" id="zweifel">C2</div>
+            <div class="button" data-value="C3" id="cocaCola">C3</div>
+            <div class="button" data-value="C4" id="redBull">C4</div>
+            <div class="button" data-value="D1" id="walser">D1</div>
+            <div class="button" data-value="D2" id="iceTea">D2</div>
+            <div class="button" data-value="D3" id="mnms">D3</div>
+            <div class="button" data-value="D4" id="snickers">D4</div>
+        </div>
+
+        <div class="inputDistributor"> <!-- parent of screen, money drop and pads-->
+
+            <div class="screen">
+                <p id="displayScreen"></p>
+            </div>
+            <div class="credit">
+                <p id="displayCredit"></p>
+                <button id="pay">$</button>
+            </div>
+            <div id="droppable" class="inputMoney"></div>
+<!--            <div id="doppableCoin" class="inputCoin"></div>-->
+
+        <div class="padContainer">
+            <div class="padLetter">
+                <div class="buttonPad" value="A" id="bA">A</div>
+                <div class="buttonPad" value="B" id="bB">B</div>
+                <div class="buttonPad" value="C" id="bC">C</div>
+                <div class="buttonPad" value="D" id="bD">D</div>
+            </div>
+            <div class="padNumber">
+                <div class="buttonPad" value="1" id="b1">1</div>
+                <div class="buttonPad" value="2" id="b2">2</div>
+                <div class="buttonPad" value="3" id="b3">3</div>
+                <div class="buttonPad" value="4" id="b4">4</div>
+            </div>
+        </div>
+        </div>
+
+        <div class="retrieveHole">
+            <div id="cachette"></div>
+            <div id="cachette2"></div>
+            <img draggable="false" src="../public/img/main.png" id="main"></img>
+        </div>
+    <br>
+</div>
+<div class="wallet">
+    <div class="wallet-inner">
+        <div class="wallet-pocket"></div>
+        <div class="wallet-bills">
+            <div draggable="true" data-value="10" class="bill green-bill">$10</div>
+            <div draggable="true" data-value="20" class="bill green-bill">$20</div>
+        </div>
+        <div class="wallet-coins">
+            <div draggable="true" data-value="2" class="coin" id="draggable">$2</div>
+            <div draggable="true" data-value="1" class="coin">$1</div>
+            <div draggable="true" data-value="0.50" class="coin cents-50">50¢</div>
+            <div draggable="true" data-value="0.20" class="coin cents-20">20¢</div>
+            <div draggable="true" data-value="0.10" class="coin cents-10">10¢</div>
+        </div>
+    </div>
+</div>
+</div>
+<script src="../public/js/distributor.js" ></script>
+</body>
+</html>

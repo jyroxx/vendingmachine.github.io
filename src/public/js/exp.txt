@@ -1,0 +1,77 @@
+To allow a `<div>` element to receive a draggable object and retrieve its ID when it's dropped onto the `<div>`, you can use HTML5's native Drag and Drop API along with JavaScript. Here's a step-by-step guide on how to achieve this:
+
+1. **HTML Structure**: Create the HTML structure with the draggable element and the droppable `<div>`.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drag and Drop Example</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="draggable" draggable="true">Drag Me</div>
+    <div id="droppable">Drop Here</div>
+    <script src="script.js"></script>
+</body>
+</html>
+```
+
+2. **CSS Styles (styles.css)**: You can add some basic styles to make the draggable and droppable elements visible and distinct.
+
+```css
+#draggable {
+    width: 100px;
+    height: 50px;
+    background-color: lightblue;
+    text-align: center;
+    line-height: 50px;
+    cursor: pointer;
+}
+
+#droppable {
+    width: 200px;
+    height: 100px;
+    background-color: lightgreen;
+    text-align: center;
+    line-height: 100px;
+}
+```
+
+3. **JavaScript Logic (script.js)**: Implement the drag-and-drop functionality along with retrieving the ID of the dropped element.
+
+```javascript
+const draggable = document.getElementById("draggable");
+const droppable = document.getElementById("droppable");
+
+draggable.addEventListener("dragstart", (event) => {
+    event.dataTransfer.setData("text/plain", event.target.id);
+});
+
+droppable.addEventListener("dragover", (event) => {
+    event.preventDefault();
+});
+
+droppable.addEventListener("drop", (event) => {
+    event.preventDefault();
+    const draggableId = event.dataTransfer.getData("text/plain");
+    const draggedElement = document.getElementById(draggableId);
+
+    // Do something with the dropped element's ID
+    console.log(`Dropped element with ID: ${draggableId}`);
+
+    // Append the dragged element to the droppable div
+    droppable.appendChild(draggedElement);
+});
+```
+
+Explanation:
+- When the draggable element starts to be dragged (`dragstart` event), we set its ID as the data being transferred.
+- When the droppable area is being dragged over (`dragover` event), we prevent the default action to allow dropping.
+- When the draggable element is dropped (`drop` event), we prevent the default action again and retrieve the ID of the dragged element using `event.dataTransfer.getData("text/plain")`. We then log the ID and append the dragged element to the droppable area.
+
+Remember to include these files (`styles.css` and `script.js`) in the same directory as your HTML file. This example demonstrates a basic implementation; you can extend and style it according to your needs.
+
+how to know in which array its stored
